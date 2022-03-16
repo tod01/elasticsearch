@@ -42,7 +42,14 @@ public class SearchUtil {
     public static SearchRequest buildSearchRequest(final String indexName, final SearchRequestDTO dto) {
 
         try {
-            SearchSourceBuilder builder = new SearchSourceBuilder().postFilter(getQueryBuilder(dto));
+            final int page = dto.getPage();
+            final int size = dto.getSize();
+            final int from = page <= 0 ? 0 : page * size;
+
+            SearchSourceBuilder builder = new SearchSourceBuilder()
+                    .from(from)
+                    .size(size)
+                    .postFilter(getQueryBuilder(dto));
 
             // sort the result if indicated
             if(dto.getSortBy() != null) {

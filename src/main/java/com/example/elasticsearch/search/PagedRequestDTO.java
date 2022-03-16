@@ -1,4 +1,4 @@
-package com.example.elasticsearch.search.util;
+package com.example.elasticsearch.search;
 
 public class PagedRequestDTO {
 

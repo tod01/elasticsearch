@@ -1,11 +1,10 @@
 package com.example.elasticsearch.search;
 
-import javax.swing.*;
 import java.util.List;
 
 import org.elasticsearch.search.sort.SortOrder;
 
-public class SearchRequestDTO {
+public class SearchRequestDTO extends PagedRequestDTO {
 
     private List<String> fields;
     private String searchTerm;
